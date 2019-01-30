@@ -14,18 +14,10 @@ BASE_DIR = '/home/zero/Downloads/oushiye/file'
 
 urls = {
     "http://www.txt80.com/dushi/index.html": 105,
-    "http://www.txt80.com/yanqing/index.html": 256,
-    "http://www.txt80.com/xuanhuan/index.html": 108,
-    "http://www.txt80.com/wuxia/index.html": 101,
-    "http://www.txt80.com/wangyou/index.html": 32,
-    "http://www.txt80.com/junshi/index.html": 41,
-    "http://www.txt80.com/kehuan/index.html": 105,
-    "http://www.txt80.com/danmei/index.html": 152,
-    "http://www.txt80.com/wenxue/index.html": 3,
-    "http://www.txt80.com/qita/index.html": 14,
 }
 
-with open('urls_dict.txt', 'a+', encoding='utf8') as f:
+
+with open('urls_dict0.txt', 'a+', encoding='utf8') as f:
     for item in urls.items():
         headers = {
             'Cache-Control': "no-cache",

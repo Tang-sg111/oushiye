@@ -13,25 +13,16 @@ BASE_DIR = '/home/zero/Downloads/oushiye/file'
 
 
 urls = {
-    "http://www.txt80.com/dushi/index.html": 105,
-    "http://www.txt80.com/yanqing/index.html": 256,
-    "http://www.txt80.com/xuanhuan/index.html": 108,
-    "http://www.txt80.com/wuxia/index.html": 101,
-    "http://www.txt80.com/wangyou/index.html": 32,
-    "http://www.txt80.com/junshi/index.html": 41,
     "http://www.txt80.com/kehuan/index.html": 105,
-    "http://www.txt80.com/danmei/index.html": 152,
-    "http://www.txt80.com/wenxue/index.html": 3,
-    "http://www.txt80.com/qita/index.html": 14,
 }
+headers = {
+    'Cache-Control': "no-cache",
+    "Content-Type": "text/html; charset=utf-8",
+    "User-Agent": getattr(UserAgent(), 'random')
+    }
 
-with open('urls_dict.txt', 'a+', encoding='utf8') as f:
+with open('urls_dict6.txt', 'a+', encoding='utf8') as f:
     for item in urls.items():
-        headers = {
-            'Cache-Control': "no-cache",
-            "Content-Type": "text/html; charset=utf-8",
-            "User-Agent": getattr(UserAgent(), 'random')
-        }
         for index in range(1, item[1] + 1):
             if index != 1:
                 mubiao = item[0].split(".html")[0] + "_{}".format(index) + ".html"
@@ -41,11 +32,6 @@ with open('urls_dict.txt', 'a+', encoding='utf8') as f:
             content = scrapy.Selector(response=response)
             note_urls = content.xpath("//div[@class='list_l_box']/div/div/a/@href").extract()
             for url in note_urls:
-                headers = {
-                    'Cache-Control': "no-cache",
-                    "Content-Type": "text/html; charset=utf-8",
-                    "User-Agent": getattr(UserAgent(), 'random')
-                }
                 try:
                     response = requests.request("GET", urljoin(response.url, url), headers=headers)
                     text = response.text.encode('ISO-8859-1').decode(

@@ -2,7 +2,7 @@ import os
 
 from selenium import webdriver
 
-BASE_DIR = '/home/zero/PycharmProjects/oushiye/file'
+BASE_DIR = '/home/zero/Downloads/oushiye/file'
 
 
 def downfile(url, filetype, filename):
@@ -17,7 +17,6 @@ def downfile(url, filetype, filename):
     abs_file_path = os.path.join(BASE_DIR, filetype, filename + '.txt')
     while True:
         if os.path.exists(abs_file_path):
-            os.remove(abs_file_path)
             break
     driver.close()
     print(url, filetype, filename)
